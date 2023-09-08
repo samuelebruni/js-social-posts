@@ -115,11 +115,3 @@ document.querySelectorAll('.like-button').forEach((button => {
 
 
 
-posts.forEach(myFunction);
-
-function myFunction(element, index, arr) {
-    arr[index] = element;
-    
-}
-
-

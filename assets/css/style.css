@@ -106,9 +106,10 @@ h1 {
 .like-button {
     display: inline-block;
     padding: 16px;
-    border-radius: 8px;    
+    background-color: white;
     text-decoration: none;
-    color: #404040;
+    border: none;
+    
 }
 
 .like-button:not(.like-button--liked):hover {
@@ -122,6 +123,10 @@ h1 {
 .like-button--liked {
     color: #0CD977;
     cursor: default;
+}
+
+.like-button:hover{
+    cursor: pointer;
 }
 
 .active{
