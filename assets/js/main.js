@@ -80,13 +80,13 @@ posts.forEach(post => {
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <button class="like-button  js-like-button" data-postid="1">
+                        <button id="${post.id}" class="like-button  js-like-button" data-postid="1">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace</span>
                         </button>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> persone
+                        Piace a <b id="like-counter-${post.id}" class="js-likes-counter">${post.likes}</b> persone
                     </div>
                 </div> 
             </div>            
@@ -95,16 +95,31 @@ posts.forEach(post => {
     </div>`
    
 })
-
+let postsLike = [];
 
 document.querySelectorAll('.like-button').forEach((button => {
+    const counterSelected = document.getElementById('like-counter-' + button.id)
     button.addEventListener('click', function (){
     button.classList.toggle('active');
+    if (button.classList.contains('active')){
+        postsLike.push(button.id);
+        counterSelected.innerHTML = Number(counterSelected.innerHTML) +1;
+
+    } else {
+        postsLike = postsLike.filter(id => id !== button.id)
+        counterSelected.innerHTML = Number(counterSelected.innerHTML) -1;
+    }
+    console.log(postsLike);
 });
-}))
+}));
 
+
+
+posts.forEach(myFunction);
+
+function myFunction(element, index, arr) {
+    arr[index] = element;
     
-
-
+}
 
 
